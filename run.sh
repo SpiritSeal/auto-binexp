@@ -1,0 +1,1 @@
+docker run -v $(pwd)/artifacts:/usr/src/app/artifacts binexpsolver

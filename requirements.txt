@@ -1,0 +1,10 @@
+langchain
+langgraph
+langchain_community
+langchain_experimental
+langchain_openai
+langchainhub
+IPython
+pwntools
+r2pipe
+python-dotenv
