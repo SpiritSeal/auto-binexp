@@ -6,7 +6,7 @@
 
 | Challenge       | Solve Status |
 | -------- | ------- |
-| Lab 1 0x00  | Consistely Solves    |
+| Lab 1 0x00  | Consistently Solves    |
 | Lab 1 0x01 | Consistently Solves     |
 | Lab 1 0x02    | Consistently Solves    |
 | Lab 1 0x03  | Infinitely Loops (repeatedly attempts to run the same Shift Cipher decryption code without changing it)    |
