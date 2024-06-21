@@ -15,13 +15,9 @@
 ## Preparation
 ```sh
 # Copy over the arifacts you would like to run on from ./samples to ./artifacts. Optionally include a README describing the challenge.
-# Inititalize a langchain_openai Chat variable named model in ./src/_config.py
+# Inititalize a langchain_openai Chat variable named model in ./src/_config.py, including any relevant API keys
 ```
 
-> Copy to .env
-```
-LLM_API_KEY="sk-..."
-```
 
 ## Run locally (warning: arbitrary code exection):
 ```sh
