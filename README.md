@@ -10,7 +10,7 @@
 | Lab 1 0x01 | Consistently Solves     |
 | Lab 1 0x02    | Consistently Solves    |
 | Lab 1 0x03  | Infinitely Loops (repeatedly attempts to run the same Shift Cipher decryption code without changing it)    |
-| Lab 2 Challenge 1 | Usually Crashes while running generated      |
+| Lab 2 Challenge 1 | Usually hangs self while running ./target binary with generated shellcode payload     |
 
 ## Preparation
 ```sh
