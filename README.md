@@ -15,6 +15,7 @@
 ## Preparation
 ```sh
 # Copy over the arifacts you would like to run on from ./samples to ./artifacts. Optionally include a README describing the challenge.
+# Inititalize a langchain_openai Chat variable named model in ./src/_config.py
 ```
 
 > Copy to .env
