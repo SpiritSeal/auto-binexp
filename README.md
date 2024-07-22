@@ -4,13 +4,13 @@
 
 ## Solution Progress
 
-| Challenge       | Solve Status |
-| -------- | ------- |
-| Lab 1 0x00  | Consistently Solves    |
-| Lab 1 0x01 | Consistently Solves     |
-| Lab 1 0x02    | Consistently Solves    |
-| Lab 1 0x03  | Infinitely Loops (repeatedly attempts to run the same Shift Cipher decryption code without changing it)    |
-| Lab 2 Challenge 1 | Usually hangs self while running ./target binary with generated shellcode payload     |
+| Challenge       | Description | Solve Status |
+| -------- | ------- | ------- |
+| Lab 1 0x00  | String input crackme | Consistently Solves    |
+| Lab 1 0x01 | Integer input crackme | Consistently Solves |     
+| Lab 1 0x02    | Integer input + mathematical logic crackme | Consistently Solves    | 
+| Lab 1 0x03  | String input + string manipulation + shift cipher crackme | Infinitely Loops (repeatedly attempts to run the same Shift Cipher decryption code without changing it)    | 
+| Lab 2 Challenge 1 | Free shellcode executor | Usually hangs self while running ./target binary with generated shellcode payload     | 
 
 ## Preparation
 ```sh
