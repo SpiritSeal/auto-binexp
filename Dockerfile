@@ -13,6 +13,7 @@ RUN apt-get update -y
 # RUN apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386
 RUN apt-get install -y libc6-i386
 RUN apt-get install -y coreutils build-essential libssl-dev libffi-dev python3-dev curl file python-is-python3 python3-pip radare2
+RUN apt-get install -y gdb
 
 COPY requirements.txt .
 
@@ -30,4 +31,4 @@ COPY flag.txt /proc/flag
 EXPOSE 80
 
 # Run main.py when the container launches
-CMD ["python3", "src/main.py"]
+CMD ["python3", "-u", "src/main.py"]

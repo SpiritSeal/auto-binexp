@@ -1,1 +1,1 @@
-flag{pwn_success}
+flag{you_win}

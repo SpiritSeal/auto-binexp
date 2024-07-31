@@ -8,3 +8,4 @@ IPython
 pwntools
 r2pipe
 python-dotenv
+pygdbmi

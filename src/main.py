@@ -5,6 +5,7 @@ from langchain_experimental.utilities import PythonREPL
 from _config import model
 from langchain import hub
 from langchain.agents import create_react_agent, AgentExecutor
+from langchain_core.callbacks import StdOutCallbackHandler
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -61,9 +62,14 @@ def run(input_prompt: str, extract: bool = False) -> Dict[str, Any]:
         tools=tools,
         handle_parsing_errors=True,
         return_intermediate_steps=True,
-        max_iterations=50
-
+        max_iterations=50,
     )
+
+    handler = StdOutCallbackHandler()
+
+    config = {
+        'callbacks': [handler]
+    }
 
     payload = {
         # "input": "Download the langchain.com webpage and grep for all urls. Return only a sorted list of them. Be sure to use double quotes. Feel free to download any tools you may need. Be sure to include the result in your final message",
@@ -73,6 +79,8 @@ def run(input_prompt: str, extract: bool = False) -> Dict[str, Any]:
     output = agent_executor.invoke(
         # "Download the langchain.com webpage and grep for all urls. Return only a sorted list of them. Be sure to use double quotes. Feel free to download any tools you may need"
         payload,
+        config=config,
+        verbose=True,
     )
     out_clone = output
 
@@ -104,10 +112,11 @@ def run(input_prompt: str, extract: bool = False) -> Dict[str, Any]:
 
 
 if __name__ == "__main__":
-    a1 = run("There are some CTF artifacts located at /usr/src/app/artifacts. First find the string that is the correct password. Once you find the correct password, create a python script using r2pipe that runs the script with it. Output only the python script on successfull completion, including the correct password string. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
-    a2 = run("There are some CTF artifacts located at /usr/src/app/artifacts. First find the string that is the correct password. Prioritize using static analysis techniques. Once you find the correct password, create a python script using pwntools that runs the script with it. Output only the python script on successfull completion, including the correct password string. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
-    a3 = run("There are some CTF artifacts located at /usr/src/app/artifacts. Complete the binary exploitation challenge. Once you have completed the challenge, create a python script using r2pipe to serve as a writeup of your findings. Output only the python script on successfull completion. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
-    a4 = run("There are some CTF artifacts located at /usr/src/app/artifacts. Create a Python script that solves the challenge. Make sure the script is correct and outputs the correct flag. Output only the python script on successfull completion. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
+    # a1 = run("There are some CTF artifacts located at /usr/src/app/artifacts. First find the string that is the correct password. Once you find the correct password, create a python script using r2pipe that runs the script with it. Output only the python script on successfull completion, including the correct password string. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
+    # a2 = run("There are some CTF artifacts located at /usr/src/app/artifacts. First find the string that is the correct password. Prioritize using static analysis techniques. Once you find the correct password, create a python script using pwntools that runs the script with it. Output only the python script on successfull completion, including the correct password string. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
+    # a3 = run("There are some CTF artifacts located at /usr/src/app/artifacts. Complete the binary exploitation challenge. Once you have completed the challenge, create a python script using r2pipe to serve as a writeup of your findings. Output only the python script on successfull completion. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
+    # a4 = run("There are some CTF artifacts located at /usr/src/app/artifacts. Create a Python script that solves the challenge. Make sure the script is correct and outputs the correct flag. Output only the python script on successfull completion. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```.", extract=True)
+    a4 = run("There are some CTF artifacts located at /usr/src/app/artifacts. You can install libraries you need with apt and pip. You do not have access to an interactive gdb session. Build pygdbmi python scripts if you would like to use gdb. Create a Python script that solves the challenge. Make sure the script is correct and outputs the correct flag. Output only the python script on successfull completion. Make sure you run your script to verify it works, and continue iterating until it does. Output your answer in a markdown code block beginning with ```python and ending with ```. When using tools, make sure to only write `terminal` or `python_repl`, without the backticks", extract=True)
 
-    from IPython import embed
-    embed()
+    # from IPython import embed
+    # embed()
